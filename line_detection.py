@@ -6,7 +6,7 @@ import cv2
 import numpy as np
 
 # Read input
-img = cv2.imread('line9.png', cv2.IMREAD_GRAYSCALE)
+img = cv2.imread('static/line9.png', cv2.IMREAD_GRAYSCALE)
 
 # Initialize output
 out = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
@@ -21,6 +21,6 @@ for line in lines:
         cv2.line(out, (x1, y1), (x2, y2), (0, 0, 255), 2)
 
 cv2.imshow('out', out)
-cv2.imwrite('line_out.jpg',out)
+cv2.imwrite('out/line_out.jpg',out)
 cv2.waitKey(0)
 cv2.destroyAllWindows()

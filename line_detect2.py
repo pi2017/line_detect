@@ -4,7 +4,7 @@ import matplotlib
 from matplotlib.pyplot import imshow
 from matplotlib import pyplot as plt
 
-filein = 'line_foto.png'
+filein = 'static/line_foto.png'
 # white color mask
 img = cv2.imread(filein)
 # converted = convert_hls(img)
@@ -20,7 +20,7 @@ yellow_mask = cv2.inRange(image, lower, upper)
 mask = cv2.bitwise_or(white_mask, yellow_mask)
 result = img.copy()
 cv2.imshow("mask", mask)
-cv2.imwrite('road_mask.jpg',mask)
+cv2.imwrite('out/road_mask.jpg',mask)
 # cv2.waitKey(0)
 height, width = mask.shape
 skel = np.zeros([height, width], dtype=np.uint8)  # [height,width,3]
@@ -43,7 +43,7 @@ for x1, y1, x2, y2 in lines[0]:
 print(i)
 
 cv2.imshow("result", result)
-cv2.imwrite('road_edges.jpg', edges)
-cv2.imwrite('road_result.jpg', result)
+cv2.imwrite('out/road_edges.jpg', edges)
+cv2.imwrite('out/road_result.jpg', result)
 print('Please check folder for result image')
 cv2.waitKey(0)
